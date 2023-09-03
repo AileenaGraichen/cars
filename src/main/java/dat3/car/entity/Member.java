@@ -6,8 +6,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -16,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 
 @Entity
-public class Member {
+public class Member extends AdminDetails{
 
     @Id
     @Column(name = "username", nullable = false, length = 50)
@@ -38,14 +36,6 @@ public class Member {
     private boolean approved;
     private int ranking;
 
-    @CreationTimestamp
-    @Column(name = "created", updatable = false)
-    private LocalDateTime created;
-
-    @UpdateTimestamp
-    @Column(name = "last_edited")
-    private LocalDateTime lastEdited;
-
     public Member(String username, String password, String email, String firstName,
                   String lastName, String street, String city, String zip) {
         this.username = username;
@@ -56,6 +46,9 @@ public class Member {
         this.street = street;
         this.city = city;
         this.zip = zip;
+    }
+
+    public void setLastEdited(LocalDateTime now) {
     }
 }
 

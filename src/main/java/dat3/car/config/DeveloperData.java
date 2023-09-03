@@ -79,8 +79,7 @@ public class DeveloperData implements ApplicationRunner {
     private int getRandomDiscount() {
         return random.nextInt(20);
     }
-    //------------^car--------------v-members--------------------//
-
+    //------------^cars--------------v-members--------------------//
     private String getRandomUsername() {
         return "user" + (random.nextInt(100) + 1);
     }

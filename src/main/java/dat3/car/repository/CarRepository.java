@@ -1,6 +1,13 @@
 package dat3.car.repository;
+
 import dat3.car.entity.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CarRepository extends JpaRepository<Car, Long> {
+import java.util.List;
+
+@Repository
+public interface CarRepository extends JpaRepository<Car, Long>{
+    List<Car> findCarByBrand(String brand);
+    Car findCarByBrandAndModel(String brand, String model);
 }

@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 
 
 @Entity
-public class Car {
+public class Car extends AdminDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,13 +31,5 @@ public class Car {
 
     @Column(name = "max_discount")
     private int bestDiscount;
-
-    @CreationTimestamp
-    @Column(name = "created", updatable = false)
-    private LocalDateTime created;
-
-    @UpdateTimestamp
-    @Column(name = "last_edited")
-    private LocalDateTime lastEdited;
 
 }
